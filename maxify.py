@@ -1,38 +1,33 @@
 from math import floor
-def Maxify(a,i) :
+def Maxify(a,n,i) :
+    largest=i
     l=(2*i)+1
     r=(2*i)+2
-    size=len(a)
-    if (l<=size) and (a[l]>a[i]) :
+    if (l<n) and (a[l]>a[largest]) :
         largest=l
-    else :
-        largest=i
-    if (r<=size) and (a[r]>a[largest]) :
+    if (r<n) and (a[r]>a[largest]) :
         largest=r
     if largest!=i :
         a[i],a[largest]=a[largest],a[i]
-        Maxify(a,largest)
+        Maxify(a,n,largest)
         
-def Build_maxheap():
-    s=int(input("No:"))
-    a=[]
-    for i in range(0,s):
-        x=input()
-        a.append(x)
-    size=len(a)
-    for i in range(floor((size/2)-1),-1,-1):
-        print(i)
-        Maxify(a,i)
-        print(a)
+def Build_maxheap(a,n):
+    for i in range(n,-1,-1):
+        Maxify(a,n,i)
+        #print("heap",i , a )
 
-"""def Heapsort():
-    a=list(input("Enter a list of numbers: "))
-    Build_maxheap(a)
-    for i in range(len(a)-1,0,-1):
-        a[0],a[i]=a[i],a[0]
-        Maxify(a,0)
+def Heapsort():
+    s=input("Enter the numbers")
+    a=list(map(int, s.split()))
+    n=len(a)
+    Build_maxheap(a,n)
+    for i in range(n-1,0,-1):
+        a[i],a[0]=a[0],a[i]
+        Maxify(a,i,0)
+        #print(a)
     print(a)
 
 
-Heapsort()"""
-Build_maxheap()
+Heapsort()
+
+
