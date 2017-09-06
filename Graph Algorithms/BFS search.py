@@ -6,7 +6,7 @@ def BFS(s,adj):
     while frontier :
         nxt=[]
         for u in frontier :
-            for u in adj[u]:
+            for v in adj[u]:
                 if v not in level:
                     level[v]=i
                     parent[v]=u
