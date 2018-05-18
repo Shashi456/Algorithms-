@@ -1,2 +1,2 @@
 # Algorithms-
-My Attempt at Writing Algos , new and also from the book of CLRS and some algorithmic questions . 
+ Algorithms and techniques found through my course and self exploration
